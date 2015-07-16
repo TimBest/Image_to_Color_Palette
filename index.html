@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Image To Color Pallet</title>
+<meta name="keywords" content="Timothy Best, Clarkson, Dominate Color, Color Pallet"/>
+
+<script type="text/javascript" class="jsbin" src="javascript/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="javascript/colorConverter.js"></script>
+<script type="text/javascript" src="javascript/hashTable.js"></script>
+<script type="text/javascript" src="javascript/binaryHeap.js"></script>
+<script type="text/javascript" src="javascript/javascript.js"></script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Color Pallet Picker</h1>
+    <h2>Color Space</h2>
+    <h3>RGB</h3>
+    <img alt="RGB color space" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/RGB_Cube_Show_lowgamma_cutout_b.png/300px-RGB_Cube_Show_lowgamma_cutout_b.png">
+    <h3>HSV</h3>
+    <img alt="HSV color space" src="http://upload.wikimedia.org/wikipedia/commons/0/0d/HSV_color_solid_cylinder_alpha_lowgamma.png">
+    <h3>HSL</h3>
+    <img alt="HSV color space" src="http://upload.wikimedia.org/wikipedia/commons/c/cb/HSL_color_solid_cylinder_alpha_lowgamma.png">
+    <h2>Source Code</h2>
+    <p><a href="javascript/javascript.js">Image manipulation.</a></p>
+    <p><a href="javascript/colorConverter.js">Color conversions.</a></p>
+    <h2>Demo</h2>
+    <div id="imageContainer">
+        <img id="image1" src="images/house.jpg" alt="your image" />
+        </br>
+        <canvas style="display:none;" id="canvas1">Your browser does not support the HTML5 canvas tag.</canvas>
+        </br>
+        <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('image1','canvas1')"/>
+        <div id="dominateColors"></div>
+    </div>
+    
+    <p>Upload a image file here and find out what colors it is composed of</p>
+    <div id="imageContainer">
+        <img id="myImage" src="images/uploadImage.png" alt="your image" />
+        </br>
+        <input id="imageUploader" type="file" value="Upload File" onchange="readURL(this);" accept="image/*" />
+        </br>
+        <canvas style="display:none;" id="myCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
+        </br>
+        <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('myImage','myCanvas')"/>
+        <div id="dominateColors"></div>
+    </div>
+    <p>Source code and Information about this program can be found <a href="../color.html">here.</a>
+</body>
+</html>

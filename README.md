@@ -1,2 +1,2 @@
-# Image_to_Color_-Palette
+# Image to Color Palette
 Takes an extracts to most prominent colors

@@ -37,26 +37,8 @@
           A Javascript library the takes an image and outputs the most dominate colors.
           Future plans involve rebuilding the library and adding a function that will turn the dominant colors into a sensible color scheme.
         </p>
-        <h3>Color Space</h3>
-        <ul class="clearing-thumbs small-block-grid-4" data-clearing>
-          <li>
-            <a href="http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/RGB_Cube_Show_lowgamma_cutout_b.png/300px-RGB_Cube_Show_lowgamma_cutout_b.png">
-              <img alt="Red Green Blue color space" data-caption="Red Green Blue" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/RGB_Cube_Show_lowgamma_cutout_b.png/300px-RGB_Cube_Show_lowgamma_cutout_b.png">
-            </a>
-          </li>
-          <li>
-            <a href="http://upload.wikimedia.org/wikipedia/commons/0/0d/HSV_color_solid_cylinder_alpha_lowgamma.png">
-              <img alt="Hue Saturation Value color space" data-caption="Hue Saturation Value" src="http://upload.wikimedia.org/wikipedia/commons/0/0d/HSV_color_solid_cylinder_alpha_lowgamma.png">
-            </a>
-          </li>
-          <li>
-            <a href="http://upload.wikimedia.org/wikipedia/commons/c/cb/HSL_color_solid_cylinder_alpha_lowgamma.png">
-              <img alt="Hue Saturation Lightness color space" data-caption="Hue Saturation Lightness" src="http://upload.wikimedia.org/wikipedia/commons/c/cb/HSL_color_solid_cylinder_alpha_lowgamma.png">
-            </a>
-          </li>
-        </ul>
-
         <h3>Demo</h3>
+
         <div id="imageContainer">
           <img id="image1" src="images/house.jpg" alt="your image" />
           </br>
@@ -77,7 +59,46 @@
           <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('myImage','myCanvas')"/>
           <div id="dominateColors"></div>
         </div>
-        <p>Source code and Information about this program can be found <a href="../color.html">here.</a>
+        
+        <h3>About This Project</h3>
+        <p>
+          This project currently works by dividing three dimensional color space into a series of weighted ranges.
+          After the ranges have been established we take each individual pixel in an image and determine what range it falls under.
+          As each pixel is added to a range it is averaged into the range and increases that ranges weight.
+          Once completed we are left with a series of average colors and weights.
+          From this we take the to ten highest weighted objects and return them to the user.
+        </p>
+        <h4> Determining the color space</h4>
+        <div class="row">
+          <div class="medium-4 columns">
+            <a href="http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/RGB_Cube_Show_lowgamma_cutout_b.png/300px-RGB_Cube_Show_lowgamma_cutout_b.png">
+              <img alt="Red Green Blue color space" data-caption="Red Green Blue" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/RGB_Cube_Show_lowgamma_cutout_b.png/300px-RGB_Cube_Show_lowgamma_cutout_b.png">
+            </a>
+          </div>
+          <div class="medium-8 columns">
+            <h4>Red, Green, and Blue (RGB)</h4>
+            <p>
+              At first I naively tried to divide up the Red, Green, and Blue color space.
+              While attempting to do so I found that many of the ranges were not humanly intuitive.
+              For each range I had to look up many RGB values to determine logical boundaries.
+              This endeavor was unacceptably tedious so I set out to research other ways of representing the color space.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="medium-4 columns">
+            <a href="http://upload.wikimedia.org/wikipedia/commons/c/cb/HSL_color_solid_cylinder_alpha_lowgamma.png">
+              <img alt="Hue Saturation Lightness color space" data-caption="Hue Saturation Lightness" src="http://upload.wikimedia.org/wikipedia/commons/c/cb/HSL_color_solid_cylinder_alpha_lowgamma.png">
+            </a>
+          </div>
+          <div class="medium-8 columns">
+            <h4>Hue, Saturation, and Lightness (HSL)</h4>
+            <p>
+              My research determined that a Hue, Saturation, and lightness color model would be the most intuitive representation.
+              After some experimentation with the color space I found that this assumption was true and went ahead dividing this color space into several ranges.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
 

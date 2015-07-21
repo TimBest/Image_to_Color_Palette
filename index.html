@@ -46,6 +46,7 @@
 
         <h3>Demo</h3>
 
+        <h5>Example Image</h5>
         <div class="row">
           <div class="medium-4 columns">
             <span class="th radius">
@@ -58,6 +59,8 @@
           </div>
         </div>
 
+        <h5>Upload your own image</h5>
+        <input type="file" value="Upload File" onchange="readURL(this, 'uploaded-image');" accept="image/*" />
         <div class="row">
           <div class="medium-4 columns">
             <span class="th radius">
@@ -65,7 +68,6 @@
             </span>
           </div>
           <div class="medium-8 columns">
-            <p>Upload an image of your own: <input type="file" value="Upload File" onchange="readURL(this, 'uploaded-image');" accept="image/*" /></p>
             <input class="button secondary small radius" type="submit" value="Find Color Pallet" onclick="findDominateColors('uploaded-image','uploaded-output')"/>
             <div id="uploaded-output"></div>
           </div>
@@ -73,48 +75,93 @@
 
         <hr/>
 
-        <h3>About This Project</h3>
-        <p>
-          This project currently works by dividing three dimensional color space into a series of weighted ranges.
-          After the ranges have been established we take each individual pixel in an image and determine what range it falls under.
-          As each pixel is added to a range it is averaged into the range and increases that ranges weight.
-          Once completed we are left with a series of average colors and weights.
-          From this we take the to ten highest weighted objects and return them to the user.
-        </p>
+        <div>
+          <h3>About This Project</h3>
+          <p>
+            This project currently works by dividing three dimensional color space into a series of weighted ranges.
+            After the ranges have been established we take each individual pixel in an image and determine what range it falls under.
+            As each pixel is added to a range it is averaged into the range and increases that ranges weight.
+            Once completed we are left with a series of average colors and weights.
+            From this we take the to ten highest weighted objects and return them to the user.
+          </p>
 
-        <hr/>
+          <div>
+            <h4>Determining the color model</h4>
+            <div class="row">
+              <div class="medium-4 columns">
+                <img alt="Red, Green, and Blue color model" src="images/RGB_cube.png"/>
+                <a href="https://en.wikipedia.org/wiki/HSL_and_HSV#Basic_principle" target="_blank">
+                  Source
+                </a>
+              </div>
+              <div class="medium-8 columns">
+                <h4>Red, Green, and Blue (RGB)</h4>
+                <p>
+                  At first I naively tried to divide up the Red, Green, and Blue color space.
+                  While attempting to do so I found that many of the ranges were not humanly intuitive.
+                  For each range I had to look up many RGB values to determine logical boundaries.
+                  This endeavor was unacceptably tedious so I set out to research other ways of representing the color space.
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="medium-4 columns">
+                <img alt="Hue, Saturation, and Lightness color model" src="images/HSL_cylinder.png"/>
+                <a href="https://en.wikipedia.org/wiki/HSL_and_HSV#Motivation" target="_blank">
+                  Source
+                </a>
+              </div>
+              <div class="medium-8 columns">
+                <h4>Hue, Saturation, and Lightness (HSL)</h4>
+                <p>
+                  My research determined that a Hue, Saturation, and lightness color model would be the most intuitive representation.
+                  After some experimentation with the color space I found that this assumption was true and went ahead dividing this color space into several ranges.
+                </p>
+              </div>
+            </div>
+          </div>
 
-        <h4> Determining the color space</h4>
-        <div class="row">
-          <div class="medium-4 columns">
-            <img alt="Red, Green, and Blue color model" src="images/RGB_cube.png"/>
-            <a href="https://en.wikipedia.org/wiki/HSL_and_HSV#Basic_principle" target="_blank">
-              Source
-            </a>
-          </div>
-          <div class="medium-8 columns">
-            <h4>Red, Green, and Blue (RGB)</h4>
+          <div>
+            <h4>Dividing color space</h4>
             <p>
-              At first I naively tried to divide up the Red, Green, and Blue color space.
-              While attempting to do so I found that many of the ranges were not humanly intuitive.
-              For each range I had to look up many RGB values to determine logical boundaries.
-              This endeavor was unacceptably tedious so I set out to research other ways of representing the color space.
+              One of the issues with using HSL is that the entire top and bottom of the cylinder represent the singular values #FFFFFF (white) and #000000 (black) respectively.
+              To deal with this distortion we cut the cylinder into 3 cylinders along the Lightness axis:
             </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="medium-4 columns">
-            <img alt="Hue, Saturation, and Lightness color model" src="images/HSL_cylinder.png"/>
-            <a href="https://en.wikipedia.org/wiki/HSL_and_HSV#Motivation" target="_blank">
-              Source
-            </a>
-          </div>
-          <div class="medium-8 columns">
-            <h4>Hue, Saturation, and Lightness (HSL)</h4>
+            <ul class="no-bullet">
+              <li> Black: 0%  <= Lightness <= 5% </li>
+              <li> Color: 5%  <  Lightness <  95% </li>
+              <li> White: 95% <= Lightness <= 100% </li>
+            </ul>
             <p>
-              My research determined that a Hue, Saturation, and lightness color model would be the most intuitive representation.
-              After some experimentation with the color space I found that this assumption was true and went ahead dividing this color space into several ranges.
+              The white and black cylinders are then divided into 5 pie slices based on their hue (we ignore saturation due to the distortion):
             </p>
+            <ol>
+              <li> 0   <= hue < 72 </li>
+              <li> 72  <= hue < 144 </li>
+              <li> 144 <= hue < 216 </li>
+              <li> 216 <= hue < 288 </li>
+              <li> 288 <= hue < 360 </li>
+            </ol>
+            <p>
+              For the color cylinder we create 36 pie slices each accounting for 10 degrees of the cylinder:
+            </p>
+            <ol>
+              <li> 0   <= hue < 10 </li>
+              <li> 10  <= hue < 20 </li>
+              <li> ... </li>
+              <li value="36"> 350 <= hue < 360 </li>
+            </ol>
+            <p>
+              We then take each pie slice and cut it into 6 pieces (with equal volume) along the saturation axis:
+            </p>
+            <ol>
+              <li> 0    <= saturation < 40.8 </li>
+              <li> 40.8 <= saturation < 57.7 </li>
+              <li> 57.7 <= saturation < 70.7 </li>
+              <li> 70.7 <= saturation < 81.6 </li>
+              <li> 81.6 <= saturation < 91.3 </li>
+              <li> 91.3 <= saturation < 100  </li>
+            </ol>
           </div>
         </div>
       </div>

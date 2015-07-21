@@ -21,7 +21,7 @@ function readURL(input) {
  * Return  Type      Name
  *         Object    used for canvas manipulation
  */
-function imageToCanvas(imageId, canvasId){ 
+function imageToCanvas(imageId, canvasId){
     var image = document.getElementById(imageId);
     var canvas = document.getElementById(canvasId);
     canvas.width = image.naturalWidth;
@@ -46,7 +46,7 @@ function canvasToImage(canvasId) {
 }
 
 /* Takes a canvas and image and returns the
- * top ten averaged colors 
+ * top ten averaged colors
  *
  * Input      Type      Name
  * imageId    String    id of HTML img
@@ -62,12 +62,12 @@ function findDominateColors(imageId, canvasId){
     var dominateColors = new Array();
     var hslTable = new HashTable();
     var hslHeap = new binaryHeap();
-    
+
     imageToCanvas(imageId, canvasId);
     var c = document.getElementById(canvasId);
     var ctx = c.getContext("2d");
     var imgData = ctx.getImageData(0,0,c.width,c.height);
-    
+
     /*convert canvas into hsvtable*/
     for (var i=0;i<imgData.data.length;i+=4)
     {
@@ -86,7 +86,7 @@ function findDominateColors(imageId, canvasId){
         s = hsl[1];
         l = hsl[2];
         /*divide values into 226 different coloured buckets
-         * buckets are labelled by 
+         * buckets are labelled by
          * 5 white
          * 5 black
          * 216 color
@@ -142,13 +142,13 @@ function findDominateColors(imageId, canvasId){
         hsl = hslHeap.pop()[0];
         rgb = hslToRgb(hsl[0],hsl[1],hsl[2]);
         dominateColors[i] = rgbToHex(rgb[0],rgb[1],rgb[2]);
-        
+
     }
         displayColors(dominateColors, canvasId);
 }
 
 /* helper function for findDominateColors
- * takes the saturation value and returns the 
+ * takes the saturation value and returns the
  * bucket value that it should be placed in
  */
 function section(s){
@@ -163,11 +163,11 @@ function section(s){
     else if( s < 91.3)
         return 4;
     else if( s < 100)
-        return 5;    
+        return 5;
 }
 
 /* helper function for findDominateColors
- * takes h,s,and l and averages them with 
+ * takes h,s,and l and averages them with
  * the existing bucket value.
  */
 function addToBucket  (hTable, key, hsl ){
@@ -194,7 +194,7 @@ function displayColors(dominateColors, canvasId){
     var row2 = $('<tr></tr>');
     var cell1, cell2;
 
-    $('#dominateColors').empty();
+    $(canvasId).closest('#dominateColors').empty();
 
     row1.append('<th>Color</th>');
     row2.append('<th>Hex</th>');
@@ -210,6 +210,5 @@ function displayColors(dominateColors, canvasId){
     table.append(row1);
     table.append(row2);
 
-    $('#dominateColors').append(table);
+    $(canvasId).closest('#dominateColors').append(table);
 }
-

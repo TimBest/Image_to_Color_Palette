@@ -128,16 +128,16 @@
               To deal with this distortion we cut the cylinder into 3 cylinders along the Lightness axis.
             </p>
             <ul class="no-bullet">
-              <li> Black: 0%  <= Lightness <= 5% </li>
-              <li> Color: 5%  <  Lightness <  95% </li>
+              <li> Black: 0% &nbsp;<= Lightness <= 5% </li>
+              <li> Color: 5% &nbsp;<&nbsp; Lightness <&nbsp; 95% </li>
               <li> White: 95% <= Lightness <= 100% </li>
             </ul>
             <p>
               The white and black cylinders are then divided into 5 pie slices based on their hue (we ignore saturation due to the distortion).
             </p>
             <ol>
-              <li> 0   <= hue < 72 </li>
-              <li> 72  <= hue < 144 </li>
+              <li> 0 &nbsp;&nbsp;<= hue < 72 </li>
+              <li> 72 &nbsp;<= hue < 144 </li>
               <li> 144 <= hue < 216 </li>
               <li> 216 <= hue < 288 </li>
               <li> 288 <= hue < 360 </li>
@@ -146,8 +146,8 @@
               For the color cylinder we create 36 pie slices each accounting for 10 degrees of the cylinder.
             </p>
             <ol>
-              <li> 0   <= hue < 10 </li>
-              <li> 10  <= hue < 20 </li>
+              <li> 0 &nbsp;&nbsp;<= hue < 10 </li>
+              <li> 10 &nbsp;<= hue < 20 </li>
               <li> ... </li>
               <li value="36"> 350 <= hue < 360 </li>
             </ol>
@@ -155,7 +155,7 @@
               We then take each pie slice and cut it into 6 pieces (with equal volume) along the saturation axis.
             </p>
             <ol>
-              <li> 0    <= saturation < 40.8 </li>
+              <li> 0 &nbsp;&nbsp;&nbsp;<= saturation < 40.8 </li>
               <li> 40.8 <= saturation < 57.7 </li>
               <li> 57.7 <= saturation < 70.7 </li>
               <li> 70.7 <= saturation < 81.6 </li>

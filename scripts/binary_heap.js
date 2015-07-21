@@ -1,4 +1,5 @@
 /*
+  Source: https://gist.github.com/dburger/1008323
   tree implementation of a binary heap, example usage:
 
   // can optionally provide a comparison function, a function for a max

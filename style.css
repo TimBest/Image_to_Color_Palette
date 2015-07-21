@@ -1,56 +1,37 @@
-html
-{
-    background:url(images/grey_wash_wall.png);
-    background-repeat:repeat;
+table {
+  position:absolute;
+  top:75px;
+  left:435px;
 }
 
-h1, h2,h3, h4, h5, h6, p, th, td
-{
-    color:#EEE;
+td {
+  width:80px;
+  height:80px;
+  font-size:14px;
+  text-align:center;
 }
 
-table
-{
-    position:absolute;
-    top:75px;
-    left:435px;
+#imageContainer {
+  position:relative;
+  height:350px;
 }
 
-td
-{
-    width:80px;
-    height:80px;
-    font-size:14px;
-    text-align:center;
+#myImage, #imageUploader, #image1 {
+  padding: 25px;
+  position:absolute;
+  top:0;
+  left:0;
+  width:400px;
+  height:300px;
 }
 
-#imageContainer
-{
-    background:url(images/binding_dark.png);
-    background-repeat:repeat;
-    position:relative;
-    height:350px;
+#imageUploader {
+  filter: alpha(opacity=0);
+  opacity: 0;
 }
 
-#myImage, #imageUploader, #image1
-{
-    padding: 25px;
-    position:absolute;
-    top:0;
-    left:0;
-    width:400px;
-    height:300px;
-}
-
-#imageUploader
-{
-    filter: alpha(opacity=0);
-    opacity: 0;
-}
-
-#findPallet
-{
-    position:absolute;
-    top:25px;
-    left:435px;
+#findPallet {
+  position:absolute;
+  top:25px;
+  left:435px;
 }

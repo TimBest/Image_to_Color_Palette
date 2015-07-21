@@ -1,3 +1,4 @@
+/* source: http://www.mojavelinux.com/articles/javascript_hashes.html */
 function HashTable(obj)
 {
     this.length = 0;
@@ -30,7 +31,7 @@ function HashTable(obj)
     {
         return this.items.hasOwnProperty(key);
     }
-   
+
     this.removeItem = function(key)
     {
         if (this.hasItem(key)) {
@@ -80,4 +81,3 @@ function HashTable(obj)
         this.length = 0;
     }
 }
-  

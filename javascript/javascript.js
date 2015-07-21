@@ -55,7 +55,7 @@ function canvasToImage(canvasId) {
  * Return  Type      Name
  *         Array     10 hex values
  */
-function findDominateColors(imageId, canvasId){
+function findDominateColors(imageId, canvasId, colorPaletteId){
     var r, g, b;
     var h, s, l;
     var hsl, rgb, weight;
@@ -144,7 +144,7 @@ function findDominateColors(imageId, canvasId){
         dominateColors[i] = rgbToHex(rgb[0],rgb[1],rgb[2]);
 
     }
-        displayColors(dominateColors, canvasId);
+    displayColors(dominateColors, colorPaletteId);
 }
 
 /* helper function for findDominateColors
@@ -188,13 +188,13 @@ function addToBucket  (hTable, key, hsl ){
  * displays a table of the hex value and it
  * corresponding using the array of 10 hex values
  */
-function displayColors(dominateColors, canvasId){
+function displayColors(dominateColors, colorPaletteId){
     var table = $('<table></table>');
     var row1 = $('<tr></tr>');
     var row2 = $('<tr></tr>');
     var cell1, cell2;
 
-    $(canvasId).find('#dominateColors').empty();
+    $('#'+colorPaletteId).empty();
 
     row1.append('<th>Color</th>');
     row2.append('<th>Hex</th>');
@@ -210,5 +210,6 @@ function displayColors(dominateColors, canvasId){
     table.append(row1);
     table.append(row2);
 
-    $(canvasId).find('#dominateColors').append(table);
+    $('#'+colorPaletteId).append(table);
+
 }

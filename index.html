@@ -31,10 +31,10 @@
         </br>
         <canvas style="display:none;" id="canvas1">Your browser does not support the HTML5 canvas tag.</canvas>
         </br>
-        <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('image1','canvas1')"/>
-        <div id="dominateColors"></div>
+        <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('image1','canvas1', 'example-color-palette')"/>
+        <div id="example-color-palette"></div>
     </div>
-    
+
     <p>Upload a image file here and find out what colors it is composed of</p>
     <div id="imageContainer">
         <img id="myImage" src="images/uploadImage.png" alt="your image" />
@@ -43,8 +43,8 @@
         </br>
         <canvas style="display:none;" id="myCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
         </br>
-        <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('myImage','myCanvas')"/>
-        <div id="dominateColors"></div>
+        <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('myImage','myCanvas', 'upload-color-palette')"/>
+        <div id="upload-color-palette"></div>
     </div>
     <p>Source code and Information about this program can be found <a href="../color.html">here.</a>
 </body>

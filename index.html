@@ -11,17 +11,24 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body>
-    <div class="header row">
-      <div class="medium-12 columns">
-        <h1>Image to color palette</h1>
-        <div class="global-nav-right">
-          <a role="button" href="https://github.com/TimothyBest/Image_to_Color_Palette" class="button">View on GitHub</a>
-          <ul class="button-group">
+    <div class="header">
+      <div class="row">
+        <div class="medium-12 columns">
+          <h1>Image to color palette</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-6 columns">
+          <a href="https://github.com/TimothyBest/Image_to_Color_Palette">View on GitHub</a>
+        </div>
+        <div class="medium-6 columns">
+          <ul class="inline-list right">
+            <li>Downloads:</li>
             <li>
-              <a href="https://github.com/TimothyBest/Image_to_Color_Palette/zipball/master" class="btn">Download .zip</a>
+              <a href="https://github.com/TimothyBest/Image_to_Color_Palette/zipball/master">.zip</a>
             </li>
             <li>
-              <a href="https://github.com/TimothyBest/Image_to_Color_Palette/tarball/master" class="btn">Download .tar.gz</a>
+              <a href="https://github.com/TimothyBest/Image_to_Color_Palette/tarball/master">.tar.gz</a>
             </li>
           </ul>
         </div>
@@ -52,17 +59,22 @@
           </div>
         </div>
 
-        <p>Upload a image file here and find out what colors it is composed of</p>
-        <div id="imageContainer">
-          <img id="myImage" src="images/uploadImage.png" alt="your image" />
-          </br>
-          <input id="imageUploader" type="file" value="Upload File" onchange="readURL(this);" accept="image/*" />
-          </br>
-          <canvas style="display:none;" id="myCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
-          </br>
-          <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('myImage','myCanvas')"/>
-          <div id="dominateColors"></div>
+        <div class="row">
+          <div id="imageContainer" class="medium-4 columns">
+            <a class="th radius" role="button" aria-label="Thumbnail" href="images/uploadImage.png">
+              <img id="myImage" alt="your image" aria-hidden=true src="images/uploadImage.png"/>
+            </a>
+          </div>
+          <div class="medium-8 columns">
+            <p>Upload a image file here and find out what colors it is composed of</p>
+            <input id="imageUploader" type="file" value="Upload File" onchange="readURL(this);" accept="image/*" />
+            <canvas style="display:none;" id="myCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
+            <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('myImage','myCanvas')"/>
+            <div id="dominateColors"></div>
+          </div>
         </div>
+
+
         <hr/>
 
         <h3>About This Project</h3>

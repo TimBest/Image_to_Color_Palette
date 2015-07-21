@@ -1,7 +1,5 @@
 table {
-  position:absolute;
-  top:75px;
-  left:435px;
+  border: 1px solid #CCC;
 }
 
 td {
@@ -11,12 +9,12 @@ td {
   text-align:center;
 }
 
-#imageContainer {
+.image-to-color-palette {
   position:relative;
   height:350px;
 }
 
-#myImage, #imageUploader, #image1 {
+img {
   padding: 25px;
   position:absolute;
   top:0;
@@ -25,12 +23,7 @@ td {
   height:300px;
 }
 
-#imageUploader {
-  filter: alpha(opacity=0);
-  opacity: 0;
-}
-
-#findPallet {
+.controls {
   position:absolute;
   top:25px;
   left:435px;

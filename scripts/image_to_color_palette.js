@@ -1,48 +1,36 @@
-function readURL(input) {
+function readURL(input, imageID) {
     if (input.files && input.files[0]) {
-        var image = new FileReader();
-        image.onload = function (e) {
-            $('#myImage')
-                .attr('src', e.target.result)
-                .width(400)
-                .height(300);
+        var file = new FileReader();
+        file.onload = function (e) {
+            image = document.getElementById(imageID).src = e.target.result;
+            image.width = 400;
+            image.height = 300;
         };
-        image.crossOrigin="";
-        image.readAsDataURL(input.files[0]);
+        file.crossOrigin="";
+        file.readAsDataURL(input.files[0]);
     }
 }
+
 
 /* Converts image to canvas
  *
  * Input      Type      Name
  * imageId    String    id of HTML img
- * canvasId   String    id of HTML canvas
  *
  * Return  Type      Name
  *         Object    used for canvas manipulation
  */
-function imageToCanvas(imageId, canvasId){
+function imageToCanvas(imageId){
     var image = document.getElementById(imageId);
-    var canvas = document.getElementById(canvasId);
+    var canvas = document.createElement('canvas');
+
     canvas.width = image.naturalWidth;
     canvas.height = image.naturalHeight;
+
     var ctx = canvas.getContext("2d");
     ctx.drawImage(image, 0, 0);
-    return ctx;
-}
 
-/* Converts canvas to image
- *
- * Input      Type      Name
- * canvasId   String    id of HTML canvas
- *
- * Return  Type      Name
- *         .png      image file
- */
-function canvasToImage(canvasId) {
-    var image = new Image();
-    image.src = canvasId.toDataURL("image/png");
-    return image;
+    return canvas;
 }
 
 /* Takes a canvas and image and returns the
@@ -50,25 +38,24 @@ function canvasToImage(canvasId) {
  *
  * Input      Type      Name
  * imageId    String    id of HTML img
- * canvasId   String    id of HTML canvas
+ * imageId    String    id of HTML element to output hex table to
  *
  * Return  Type      Name
  *         Array     10 hex values
  */
-function findDominateColors(imageId, canvasId, colorPaletteId){
-    var r, g, b;
+function findDominateColors(imageId, colorPaletteId){
+    var red, green, blue;
     var h, s, l;
     var hsl, rgb, weight;
     var dominateColors = new Array();
     var hslTable = new HashTable();
     var hslHeap = new binaryHeap();
 
-    imageToCanvas(imageId, canvasId);
-    var c = document.getElementById(canvasId);
-    var ctx = c.getContext("2d");
-    var imgData = ctx.getImageData(0,0,c.width,c.height);
+    var canvas = imageToCanvas(imageId);
+    var ctx = canvas.getContext("2d");
+    var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
-    /*convert canvas into hsvtable*/
+    /* convert canvas into hsvtable */
     for (var i=0;i<imgData.data.length;i+=4)
     {
         /**
@@ -77,11 +64,11 @@ function findDominateColors(imageId, canvasId, colorPaletteId){
          * i+2 = Blue (b) - The color blue (from 0-255)
          * i+3 = Alpha (a) - The alpha channel (from 0-255; 0 is transparent and 255 is fully visible)
          */
-        r = imgData.data[i];
-        g = imgData.data[i+1];
-        b = imgData.data[i+2];
+        red = imgData.data[i];
+        green = imgData.data[i+1];
+        blue = imgData.data[i+2];
         /*Alpha is not used*/
-        hsl = rgbToHsl(r, g, b);
+        hsl = rgbToHsl(red, green, blue);
         h = hsl[0];
         s = hsl[1];
         l = hsl[2];

@@ -194,7 +194,7 @@ function displayColors(dominateColors, canvasId){
     var row2 = $('<tr></tr>');
     var cell1, cell2;
 
-    $(canvasId).closest('#dominateColors').empty();
+    $(canvasId).find('#dominateColors').empty();
 
     row1.append('<th>Color</th>');
     row2.append('<th>Hex</th>');
@@ -210,5 +210,5 @@ function displayColors(dominateColors, canvasId){
     table.append(row1);
     table.append(row2);
 
-    $(canvasId).closest('#dominateColors').append(table);
+    $(canvasId).find('#dominateColors').append(table);
 }

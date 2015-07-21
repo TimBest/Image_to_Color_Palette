@@ -49,12 +49,12 @@
         <div class="row">
           <div id="imageContainer" class="medium-4 columns">
             <a class="th radius" role="button" aria-label="Thumbnail" href="images/house.jpg">
-              <img id="image1" alt="example image" aria-hidden=true src="images/house.jpg"/>
+              <img id="example-image" alt="example image" aria-hidden=true src="images/house.jpg"/>
             </a>
           </div>
           <div class="medium-8 columns">
-            <canvas style="display:none;" id="canvas1">Your browser does not support the HTML5 canvas tag.</canvas>
-            <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('image1','canvas1')"/>
+            <canvas style="display:none;" id="example-canvas">Your browser does not support the HTML5 canvas tag.</canvas>
+            <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('example-image','example-canvas')"/>
             <div id="dominateColors"></div>
           </div>
         </div>
@@ -62,14 +62,14 @@
         <div class="row">
           <div id="imageContainer" class="medium-4 columns">
             <a class="th radius" role="button" aria-label="Thumbnail" href="images/uploadImage.png">
-              <img id="myImage" alt="your image" aria-hidden=true src="images/uploadImage.png"/>
+              <img id="uploaded-image" alt="your image" aria-hidden=true src="images/uploadImage.png"/>
             </a>
           </div>
           <div class="medium-8 columns">
             <p>Upload a image file here and find out what colors it is composed of</p>
             <input id="imageUploader" type="file" value="Upload File" onchange="readURL(this);" accept="image/*" />
-            <canvas style="display:none;" id="myCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
-            <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('myImage','myCanvas')"/>
+            <canvas style="display:none;" id="uploaded-canvas">Your browser does not support the HTML5 canvas tag.</canvas>
+            <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('uploaded-image','uploaded-canvas')"/>
             <div id="dominateColors"></div>
           </div>
         </div>

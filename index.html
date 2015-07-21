@@ -37,6 +37,8 @@
           A Javascript library the takes an image and outputs the most dominate colors.
           Future plans involve rebuilding the library and adding a function that will turn the dominant colors into a sensible color scheme.
         </p>
+        <hr/>
+
         <h3>Demo</h3>
 
         <div id="imageContainer">
@@ -59,7 +61,8 @@
           <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('myImage','myCanvas')"/>
           <div id="dominateColors"></div>
         </div>
-        
+        <hr/>
+
         <h3>About This Project</h3>
         <p>
           This project currently works by dividing three dimensional color space into a series of weighted ranges.
@@ -68,11 +71,13 @@
           Once completed we are left with a series of average colors and weights.
           From this we take the to ten highest weighted objects and return them to the user.
         </p>
+        <hr/>
+
         <h4> Determining the color space</h4>
         <div class="row">
           <div class="medium-4 columns">
-            <a href="http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/RGB_Cube_Show_lowgamma_cutout_b.png/300px-RGB_Cube_Show_lowgamma_cutout_b.png">
-              <img alt="Red Green Blue color space" data-caption="Red Green Blue" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/RGB_Cube_Show_lowgamma_cutout_b.png/300px-RGB_Cube_Show_lowgamma_cutout_b.png">
+            <a class="th radius" role="button" aria-label="Thumbnail" href="http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/RGB_Cube_Show_lowgamma_cutout_b.png/300px-RGB_Cube_Show_lowgamma_cutout_b.png">
+              <img alt="Red, Green, and Blue color model" aria-hidden=true src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/RGB_Cube_Show_lowgamma_cutout_b.png/300px-RGB_Cube_Show_lowgamma_cutout_b.png"/>
             </a>
           </div>
           <div class="medium-8 columns">
@@ -87,8 +92,8 @@
         </div>
         <div class="row">
           <div class="medium-4 columns">
-            <a href="http://upload.wikimedia.org/wikipedia/commons/c/cb/HSL_color_solid_cylinder_alpha_lowgamma.png">
-              <img alt="Hue Saturation Lightness color space" data-caption="Hue Saturation Lightness" src="http://upload.wikimedia.org/wikipedia/commons/c/cb/HSL_color_solid_cylinder_alpha_lowgamma.png">
+            <a class="th radius" role="button" aria-label="Thumbnail" href="http://upload.wikimedia.org/wikipedia/commons/c/cb/HSL_color_solid_cylinder_alpha_lowgamma.png">
+              <img alt="Hue, Saturation, and Lightness color model" aria-hidden=true src="http://upload.wikimedia.org/wikipedia/commons/c/cb/HSL_color_solid_cylinder_alpha_lowgamma.png"/>
             </a>
           </div>
           <div class="medium-8 columns">

@@ -176,27 +176,29 @@ function addToBucket  (hTable, key, hsl ){
  * corresponding using the array of 10 hex values
  */
 function displayColors(dominateColors, colorPaletteId){
-    var table = $('<table></table>');
-    var row1 = $('<tr></tr>');
-    var row2 = $('<tr></tr>');
+    var table = document.createElement('table');
+    var row1 = document.createElement('tr');
+    var row2 = document.createElement('tr');
     var cell1, cell2;
 
-    $('#'+colorPaletteId).empty();
+    document.getElementById(colorPaletteId).innerHTML = '';
 
-    row1.append('<th>Color</th>');
-    row2.append('<th>Hex</th>');
+    row1.innerHTML = '<th>Color</th>';
+    row2.innerHTML = '<th>Hex</th>';
 
     for(i=0; i<10; i++)
     {
-        cell1 = $('<td></td>').text('').css('background-color',''+dominateColors[i]);
-        cell2 = $('<td></td>').text('' + dominateColors[i]);
-        row1.append(cell1);
-        row2.append(cell2);
+        cell1 = document.createElement('td');
+        cell1.setAttribute("style", "background-color: "+ String(dominateColors[i]));
+        cell2 = document.createElement('td');
+        cell2.innerHTML = String(dominateColors[i]);
+        row1.appendChild(cell1);
+        row2.appendChild(cell2);
     }
 
-    table.append(row1);
-    table.append(row2);
+    table.appendChild(row1);
+    table.appendChild(row2);
 
-    $('#'+colorPaletteId).append(table);
+    document.getElementById(colorPaletteId).appendChild(table);
 
 }

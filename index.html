@@ -47,30 +47,28 @@
         <h3>Demo</h3>
 
         <div class="row">
-          <div id="imageContainer" class="medium-4 columns">
-            <a class="th radius" role="button" aria-label="Thumbnail" href="images/house.jpg">
-              <img id="example-image" alt="example image" aria-hidden=true src="images/house.jpg"/>
+          <div class="medium-4 columns">
+            <a class="th radius" role="button" aria-label="Thumbnail" href="https://raw.githubusercontent.com/TimothyBest/Image_to_Color_Palette/master/images/house.jpg">
+              <img id="example-image" alt="example image" aria-hidden=true src="https://raw.githubusercontent.com/TimothyBest/Image_to_Color_Palette/master/images/house.jpg"/>
             </a>
           </div>
           <div class="medium-8 columns">
-            <canvas style="display:none;" id="example-canvas">Your browser does not support the HTML5 canvas tag.</canvas>
-            <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('example-image','example-canvas')"/>
-            <div id="dominateColors"></div>
+            <input type="submit" value="Find Color Pallet" onclick="findDominateColors('example-image','example-output')"/>
+            <div id="example-output"></div>
           </div>
         </div>
 
         <div class="row">
-          <div id="imageContainer" class="medium-4 columns">
-            <a class="th radius" role="button" aria-label="Thumbnail" href="images/uploadImage.png">
-              <img id="uploaded-image" alt="your image" aria-hidden=true src="images/uploadImage.png"/>
+          <div class="medium-4 columns">
+            <a class="th radius" role="button" aria-label="Thumbnail" href="https://raw.githubusercontent.com/TimothyBest/Image_to_Color_Palette/master/images/upload_image.png">
+              <img id="uploaded-image" alt="your image" aria-hidden=true src="https://raw.githubusercontent.com/TimothyBest/Image_to_Color_Palette/master/images/upload_image.png"/>
             </a>
           </div>
           <div class="medium-8 columns">
             <p>Upload a image file here and find out what colors it is composed of</p>
-            <input id="imageUploader" type="file" value="Upload File" onchange="readURL(this);" accept="image/*" />
-            <canvas style="display:none;" id="uploaded-canvas">Your browser does not support the HTML5 canvas tag.</canvas>
-            <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('uploaded-image','uploaded-canvas')"/>
-            <div id="dominateColors"></div>
+            <input type="file" value="Upload File" onchange="readURL(this, 'uploaded-image');" accept="image/*" />
+            <input type="submit" value="Find Color Pallet" onclick="findDominateColors('uploaded-image','uploaded-output')"/>
+            <div id="uploaded-output"></div>
           </div>
         </div>
 
@@ -90,8 +88,9 @@
         <h4> Determining the color space</h4>
         <div class="row">
           <div class="medium-4 columns">
-            <a class="th radius" role="button" aria-label="Thumbnail" href="http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/RGB_Cube_Show_lowgamma_cutout_b.png/300px-RGB_Cube_Show_lowgamma_cutout_b.png">
-              <img alt="Red, Green, and Blue color model" aria-hidden=true src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/RGB_Cube_Show_lowgamma_cutout_b.png/300px-RGB_Cube_Show_lowgamma_cutout_b.png"/>
+            <img alt="Red, Green, and Blue color model" src="images/HSL_cylinder.png"/>
+            <a href="https://en.wikipedia.org/wiki/HSL_and_HSV#Basic_principle" target="_blank">
+              Sourcw
             </a>
           </div>
           <div class="medium-8 columns">
@@ -106,8 +105,9 @@
         </div>
         <div class="row">
           <div class="medium-4 columns">
-            <a class="th radius" role="button" aria-label="Thumbnail" href="http://upload.wikimedia.org/wikipedia/commons/c/cb/HSL_color_solid_cylinder_alpha_lowgamma.png">
-              <img alt="Hue, Saturation, and Lightness color model" aria-hidden=true src="http://upload.wikimedia.org/wikipedia/commons/c/cb/HSL_color_solid_cylinder_alpha_lowgamma.png"/>
+            <img alt="Hue, Saturation, and Lightness color model" src="RGB_cube.png"/>
+            <a href="https://en.wikipedia.org/wiki/HSL_and_HSV#Motivation" target="_blank">
+              Source
             </a>
           </div>
           <div class="medium-8 columns">

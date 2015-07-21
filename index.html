@@ -15,10 +15,8 @@
       <div class="medium-12 columns">
         <h1>Image to color palette</h1>
         <div class="global-nav-right">
-          <ul class="inline-list">
-            <li>
-              <a href="https://github.com/TimothyBest/Image_to_Color_Palette" class="btn">View on GitHub</a>
-            </li>
+          <a role="button" href="https://github.com/TimothyBest/Image_to_Color_Palette" class="button">View on GitHub</a>
+          <ul class="button-group">
             <li>
               <a href="https://github.com/TimothyBest/Image_to_Color_Palette/zipball/master" class="btn">Download .zip</a>
             </li>
@@ -41,13 +39,17 @@
 
         <h3>Demo</h3>
 
-        <div id="imageContainer">
-          <img id="image1" src="images/house.jpg" alt="your image" />
-          </br>
-          <canvas style="display:none;" id="canvas1">Your browser does not support the HTML5 canvas tag.</canvas>
-          </br>
-          <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('image1','canvas1')"/>
-          <div id="dominateColors"></div>
+        <div class="row">
+          <div id="imageContainer" class="medium-4 columns">
+            <a class="th radius" role="button" aria-label="Thumbnail" href="images/house.jpg">
+              <img id="image1" alt="example image" aria-hidden=true src="images/house.jpg"/>
+            </a>
+          </div>
+          <div class="medium-8 columns">
+            <canvas style="display:none;" id="canvas1">Your browser does not support the HTML5 canvas tag.</canvas>
+            <input id="findPallet" type="submit" value="Find Color Pallet" onclick="findDominateColors('image1','canvas1')"/>
+            <div id="dominateColors"></div>
+          </div>
         </div>
 
         <p>Upload a image file here and find out what colors it is composed of</p>

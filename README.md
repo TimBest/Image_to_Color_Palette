@@ -4,7 +4,7 @@ A Javascript library the takes an image and outputs the most dominate colors. Fu
 
 ## Installation
 
-Download: 
+Download:
 [.zip](https://github.com/TimothyBest/Image_to_Color_Palette/zipball/master)
 or
 [.tar.gz](https://github.com/TimothyBest/Image_to_Color_Palette/tarball/master)
@@ -19,7 +19,7 @@ Open Index.html in your browser to see an example of the project
 
 **findDominateColors(imageID, containerID):**
 - imageID: is the id of an HTML img tag that holds an image you want to evaluate
-- containerID: is the id of an HTML tag that will contain the functions output (a 2X11 table containing the 10 most dominant colors and their corresponding hex values
+- containerID: is the id of an HTML tag that will contain the functions output (a 2X11 table containing the 10 most dominant colors and their corresponding hex values)
 
 example:
 ```HTML
@@ -31,7 +31,7 @@ example:
 
 
 **readURL(fileInput, imageID):**
-- fileInput: a variable contatin the input tag that the file will be grabed from 
+- fileInput: a variable contatin the input tag that the file will be grabed from
 - imageID: is the id of an HTML img tag that you want the image to upload to
 
 

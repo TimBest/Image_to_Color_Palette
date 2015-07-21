@@ -125,7 +125,7 @@
             <h4>Dividing color space</h4>
             <p>
               One of the issues with using HSL is that the entire top and bottom of the cylinder represent the singular values #FFFFFF (white) and #000000 (black) respectively.
-              To deal with this distortion we cut the cylinder into 3 cylinders along the Lightness axis:
+              To deal with this distortion we cut the cylinder into 3 cylinders along the Lightness axis.
             </p>
             <ul class="no-bullet">
               <li> Black: 0%  <= Lightness <= 5% </li>
@@ -133,7 +133,7 @@
               <li> White: 95% <= Lightness <= 100% </li>
             </ul>
             <p>
-              The white and black cylinders are then divided into 5 pie slices based on their hue (we ignore saturation due to the distortion):
+              The white and black cylinders are then divided into 5 pie slices based on their hue (we ignore saturation due to the distortion).
             </p>
             <ol>
               <li> 0   <= hue < 72 </li>
@@ -143,7 +143,7 @@
               <li> 288 <= hue < 360 </li>
             </ol>
             <p>
-              For the color cylinder we create 36 pie slices each accounting for 10 degrees of the cylinder:
+              For the color cylinder we create 36 pie slices each accounting for 10 degrees of the cylinder.
             </p>
             <ol>
               <li> 0   <= hue < 10 </li>
@@ -152,7 +152,7 @@
               <li value="36"> 350 <= hue < 360 </li>
             </ol>
             <p>
-              We then take each pie slice and cut it into 6 pieces (with equal volume) along the saturation axis:
+              We then take each pie slice and cut it into 6 pieces (with equal volume) along the saturation axis.
             </p>
             <ol>
               <li> 0    <= saturation < 40.8 </li>
@@ -170,7 +170,13 @@
     <footer class="row">
       <hr/>
       <div class="medium-12 columns">
-        <span class="site-footer-owner"><a href="https://github.com/TimothyBest/Image_to_Color_Palette">Image to color palette</a> is maintained by <a href="https://www.timbest.net">TimothyBest</a>.</span>
+        <ul class="inline-list">
+        <li>
+          <a href="https://github.com/TimothyBest/Image_to_Color_Palette">Image to color palette</a>
+          <span> is maintained by </span>
+          <a href="https://www.timbest.net">TimothyBest</a>.
+        </li>
+      </ul>
       </div>
     </footer>
 
